@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập thành công</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 24px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            font-size: 14px;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-home {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-logout {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .content h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .info {
+            margin-top: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-actions">
+    <a th:href="@{/}">
+        <div>
+            <img src="https://spos.vnpay.vn/Portals/_default/Skins/Assets/images/logo-primary.svg" alt="LOGO VNPAY"
+                 style="width: 300px; height: 80px;">
+        </div>
+    </a>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-logout"> Đăng xuất</button>
+    </form>
+</div>
+
+<div class="container">
+    <div class="content">
+
+        <h2>Đăng nhập thành công</h2>
+        <div class="info">
+            <p>Xin chào, <strong th:text="${username}">user</strong></p>
+            <p>Bạn đã đăng nhập thành công qua hệ thống VNPAY SSO.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

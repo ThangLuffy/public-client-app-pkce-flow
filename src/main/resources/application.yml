@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: public-client-app-pkce-flow
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: public-client-app-pkce-flow
+            authorization-grant-type: authorization_code
+            client-authentication-method: none
+            redirect-uri: "http://localhost:9097/login/oauth2/code/keycloak"
+            scope: openid, profile, email
+
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/spring-pkce-realm
+            user-name-attribute: preferred_username
+
+server:
+  port: 9097
+
+keycloak:
+  client:
+    id: public-client-app-pkce-flow
+  logout:
+    url: "http://localhost:8080/realms/spring-pkce-realm/protocol/openid-connect/logout"
+    redirect-uri: "http://localhost:9097/"
+
+
+logging:
+  level:
+    org.springframework.security: DEBUG
